@@ -1,0 +1,46 @@
+<p>Seja bem-vindo ao curso de Angular!</p>
+
+<h4 class="text-danger">{{anuncio}}</h4>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <app-card-produto
+        [foto] = "foto"
+        [nomeProduto] = "nomeProduto"
+        [promocao] = "promocao"
+        [idProduto] = "idProduto"
+        [dataValidade] = "dataValidade"
+        [precoProduto] = "precoProduto">
+      </app-card-produto>
+    </div>
+
+    <div class="col">
+      <app-card-produto
+        foto = 'assets/img/img-angular.png'
+        [nomeProduto] = "nomeProduto"
+        [promocao] = "promocao"
+        [idProduto] = "idProduto"
+        [dataValidade] = "dataValidade"
+        [precoProduto] = "precoProduto">
+      </app-card-produto>
+    </div>
+
+
+  </div>
+</div>
+
+
+
+
+<!-- <div class="row">
+
+  <div class="col">
+    <img class="img-fluid" src="assets/img/crud.png" alt="">
+  </div>
+
+  <div class="col">
+    <img lass="img-fluid" width="400px" src="assets/img/img-angular.png" alt="">
+  </div>
+
+</div> -->
