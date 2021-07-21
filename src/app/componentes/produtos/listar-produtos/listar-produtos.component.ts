@@ -30,9 +30,10 @@ export class ListarProdutosComponent implements OnInit {
   }
 
   carregarProdutos(): void{
-    this.produtoService.buscarTodos().subscribe(retorno => {
-      this.listaProdutos = retorno;
-    });
+    this.listaProdutos = this.produtoService.buscarTodos();
+    // this.produtoService.buscarTodos().subscribe(retorno => {
+    //   this.listaProdutos = retorno;
+    // });
   }
 
   deletar(produto: IProduto | any): void{

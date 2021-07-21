@@ -16,14 +16,18 @@ export class ProdutosService {
 
   constructor(private http: HttpClient, private toastr: ToastrService) { }
 
-  buscarTodos(): Observable<any>{
+  buscarTodos(): any{
+    return produtos;
+  }
+
+  /*buscarTodos(): Observable<any>{
 
     return this.http.get<IProduto[]>(this.URL).pipe(
       map(retorno => retorno),
       catchError(erro => this.exibeErro(erro))
     );
 
-  }
+  }*/
 
   buscarPorId(id: number): Observable<IProduto>{
     return this.http.get<IProduto>(`${this.URL}/${id}`).pipe(
@@ -46,12 +50,16 @@ export class ProdutosService {
     );
   }
 
-  cadastrar(produto: IProduto): Observable<IProduto>{
-    return this.http.post<IProduto>(this.URL, produto).pipe(
-      map(retorno => retorno),
-      catchError(erro => this.exibeErro(erro))
-    );
+  cadastrar(p: IProduto){
+    return produtos.push(p);
   }
+
+  // cadastrar(produto: IProduto): Observable<IProduto>{
+  //   return this.http.post<IProduto>(this.URL, produto).pipe(
+  //     map(retorno => retorno),
+  //     catchError(erro => this.exibeErro(erro))
+  //   );
+  // }
 
   exibeErro(e: any):Observable<any>{
     this.exibirMensagem('Erro!', 'Não foi possível realizar a operação.', 'toast-error');
@@ -63,3 +71,36 @@ export class ProdutosService {
   }
 
 }
+
+var produtos: IProduto [] = [
+{
+  id: 1,
+  nome: 'Angular: CLI',
+  validade: new Date(),
+  preco: 12.99
+},
+{
+  id: 2,
+  nome: 'Angular: Forms',
+  validade: new Date(),
+  preco: 24.99
+},
+{
+  id: 3,
+  nome: 'Angular: HTTP',
+  validade: new Date(),
+  preco: 36.99
+},
+{
+  id: 4,
+  nome: 'Angular: Router',
+  validade: new Date(),
+  preco: 46.99
+},
+{
+  id: 5,
+  nome: 'Angular: Animations',
+  validade: new Date(),
+  preco: 56.99
+}
+];

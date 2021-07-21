@@ -22,15 +22,20 @@ export class CadastrarProdutoComponent implements OnInit {
   }
 
   salvarProduto(): void{
-    this.produtosService.cadastrar(this.produto).subscribe(retorno =>{
-      this.produto = retorno;
-      this.produtosService.exibirMensagem(
-        'SISTEMA',
-        `${this.produto.nome} foi cadastrado com sucesso. ID: ${this.produto.id}`,
-        'toast-success'
-      );
-      this.route.navigate(['/produtos']);
-    });
+    this.produtosService.cadastrar(this.produto);
+    this.route.navigate(['/produtos']);
   }
+
+  // salvarProduto(): void{
+  //   this.produtosService.cadastrar(this.produto).subscribe(retorno =>{
+  //     this.produto = retorno;
+  //     this.produtosService.exibirMensagem(
+  //       'SISTEMA',
+  //       `${this.produto.nome} foi cadastrado com sucesso. ID: ${this.produto.id}`,
+  //       'toast-success'
+  //     );
+  //     this.route.navigate(['/produtos']);
+  //   });
+  // }
 
 }
