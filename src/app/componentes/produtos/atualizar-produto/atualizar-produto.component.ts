@@ -22,21 +22,31 @@ export class AtualizarProdutoComponent implements OnInit {
 
   ngOnInit(): void {
     const id = Number(this.activatedRouter.snapshot.paramMap.get('id'));
-    this.produtosService.buscarPorId(id).subscribe(retorno =>{
-      this.produto = retorno;
-    });
+    this.produto = this.produtosService.buscarPorId(id);
+    //this.produtosService.buscarPorId(id).subscribe(retorno =>{
+    //  this.produto = retorno;
+    //});
   }
 
   salvarProduto(): void{
-    this.produtosService.atualizar(this.produto).subscribe(retorno =>{
-      this.produto = retorno;
-      this.produtosService.exibirMensagem(
-        'SISTEMA',
-        `${this.produto.nome} foi atualizado com sucesso.`,
-        'toast-success'
-      );
-      this.route.navigate(['/produtos']);
-    });
+
+    this.produtosService.atualizar(this.produto);
+    this.produtosService.exibirMensagem(
+           'SISTEMA',
+           `${this.produto.nome} foi atualizado com sucesso.`,
+           'toast-success'
+         );
+    this.route.navigate(['/produtos']);
+
+    // this.produtosService.atualizar(this.produto).subscribe(retorno =>{
+    //   this.produto = retorno;
+    //   this.produtosService.exibirMensagem(
+    //     'SISTEMA',
+    //     `${this.produto.nome} foi atualizado com sucesso.`,
+    //     'toast-success'
+    //   );
+    //   this.route.navigate(['/produtos']);
+    // });
   }
 
 }

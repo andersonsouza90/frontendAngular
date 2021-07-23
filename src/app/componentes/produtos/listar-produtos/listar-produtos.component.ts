@@ -27,6 +27,10 @@ export class ListarProdutosComponent implements OnInit {
 
   ngOnInit(): void {
     this.carregarProdutos();
+
+    console.log('listaProdutos', this.listaProdutos);
+    console.log(this.listaProdutos[this.listaProdutos.length-1].id);
+
   }
 
   carregarProdutos(): void{
@@ -37,10 +41,14 @@ export class ListarProdutosComponent implements OnInit {
   }
 
   deletar(produto: IProduto | any): void{
-    this.produtoService.excluir(produto.id).subscribe(() => {
-      this.produtoService.exibirMensagem('SISTEMA', `${produto.nome} foi excluido com sucesso`, 'toast-error');
-      this.carregarProdutos();
-    });
+    this.produtoService.excluir(produto.id);
+    this.produtoService.exibirMensagem('SISTEMA', `${produto.nome} foi excluido com sucesso`, 'toast-success');
+    this.carregarProdutos();
+
+    // this.produtoService.excluir(produto.id).subscribe(() => {
+    //   this.produtoService.exibirMensagem('SISTEMA', `${produto.nome} foi excluido com sucesso`, 'toast-error');
+    //   this.carregarProdutos();
+    // });
 
   }
 

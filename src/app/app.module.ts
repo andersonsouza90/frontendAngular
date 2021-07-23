@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { SharedModule } from './shared/shared.module';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
@@ -41,7 +41,7 @@ import { AtualizarProdutoComponent } from './componentes/produtos/atualizar-prod
     ToastrModule.forRoot(), // ToastrModule added
     SweetAlert2Module.forRoot()
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
