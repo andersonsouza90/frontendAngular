@@ -61,6 +61,7 @@ export class ProdutosService {
     let p = produtos.filter(p => p.id === id)[0];
     produtos = produtos.filter(obj => obj !== p);
 
+
   }
 
   // excluir(id: number): Observable<any>{
@@ -71,8 +72,14 @@ export class ProdutosService {
   // }
 
   cadastrar(p: IProduto){
-    p.id = Number(produtos[produtos.length-1].id) + 1;
+    if(produtos.length == 0){
+      p.id = 1;
+      return produtos.push(p);
+    }else{
+      p.id = Number(produtos[produtos.length-1].id) + 1;
     return produtos.push(p);
+    }
+
   }
 
   // cadastrar(produto: IProduto): Observable<IProduto>{
