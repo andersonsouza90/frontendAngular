@@ -12,8 +12,8 @@ export class AtualizarProdutoComponent implements OnInit {
 
   produto: IProduto = {
     nome: '',
-    validade: new Date,
-    preco: 0
+    validade: '',
+    preco: ''
   };
 
   constructor(private produtosService: ProdutosService,

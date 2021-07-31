@@ -104,31 +104,31 @@ var produtos: IProduto [] = [
 {
   id: 1,
   nome: 'Angular: CLI',
-  validade: new Date(),
-  preco: 12.99
+  validade: new Date() + '',
+  preco: '12.99'
 },
 {
   id: 2,
   nome: 'Angular: Forms',
-  validade: new Date(),
-  preco: 24.99
+  validade: new Date() + '',
+  preco: '24.99'
 },
 {
   id: 3,
   nome: 'Angular: HTTP',
-  validade: new Date(),
-  preco: 36.99
+  validade: new Date() + '',
+  preco: '36.99'
 },
 {
   id: 4,
   nome: 'Angular: Router',
-  validade: new Date(),
-  preco: 46.99
+  validade: new Date() + '',
+  preco: '46.99'
 },
 {
   id: 5,
   nome: 'Angular: Animations',
-  validade: new Date(),
-  preco: 56.99
+  validade: new Date() + '',
+  preco: '56.99'
 }
 ];

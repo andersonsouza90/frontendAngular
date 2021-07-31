@@ -4,13 +4,13 @@
 
 
 <div class="card shadow">
-  <form class="m-3">
+  <form class="m-3" #form="ngForm">
 
     <div class="row">
       <div class="col-md-12">
         <div class="form-group">
           <label for="nome">Nome do produto</label>
-          <input type="text" class="form-control" name="nome" [(ngModel)]="produto.nome">
+          <input type="text" class="form-control" name="nome" [(ngModel)]="produto.nome" required #pNome="ngModel" [ngClass]="{'is-invalid': pNome.invalid}">
         </div>
       </div>
     </div> <!--Fim row-->
@@ -19,14 +19,14 @@
       <div class="col-md-6">
         <div class="form-group">
           <label for="validade">Validade</label>
-          <input type="date" class="form-control" name="validade" [(ngModel)]="produto.validade">
+          <input type="date" class="form-control" name="validade" [(ngModel)]="produto.validade" required #pValidade="ngModel" [ngClass]="{'is-invalid': pValidade.invalid}">
         </div>
       </div>
 
       <div class="col-md-6">
         <div class="form-group">
           <label for="preco">Preço</label>
-          <input type="number" class="form-control" name="preco" [(ngModel)]="produto.preco">
+          <input type="number" class="form-control" name="preco" [(ngModel)]="produto.preco" required #pPreco="ngModel" [ngClass]="{'is-invalid': pPreco.invalid}">
         </div>
       </div>
     </div> <!--Fim row-->
@@ -34,7 +34,7 @@
     <div class="row mt-2">
       <div class="col">
         <button class="btn btn-primary" routerLink="/produtos">Voltar</button>
-        <button class="btn btn-success float-end" (click)="salvarProduto()">Salvar</button>
+        <button [disabled]="form.invalid" class="btn btn-success float-end" (click)="salvarProduto()" type="submit">Salvar</button>
       </div>
     </div>
 

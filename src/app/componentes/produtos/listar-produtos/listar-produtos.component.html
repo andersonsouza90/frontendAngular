@@ -3,16 +3,16 @@
   <button routerLink="/produtos/cadastrar" type="button" class="btn btn-success mt-2 float-end">Cadastrar</button>
 </h1>
 
-<div class="card shadow">
-
-  <table class="table table-responsive table-striped">
+<div class="card shadow" style="overflow-y: auto; height: 500px;">
+  <div class="table-responsive">
+  <table class="table table-striped">
     <thead>
       <tr>
         <th>#</th>
         <th>Nome</th>
         <th>Validade</th>
         <th>Valor</th>
-        <th>Ações</th>
+        <th style="padding-right: 65px;">Ações</th>
       </tr>
     </thead>
     <tbody>
@@ -22,9 +22,11 @@
         <td>{{p.validade | date: 'dd/MM/yyyy'}}</td>
         <td>{{p.preco | currency: 'BRL': 'symbol': '1.2-3'}}</td>
         <td>
+
           <button class="btn btn-warning " routerLink="/produtos/atualizar/{{p.id}}">
             <i class="fa fa-edit"></i>
           </button>
+
           <button class="btn btn-danger ms-2" [swal]="{
             title: 'ATENÇÃO',
             text: 'Deseja realmente esxcluir o produto ' + p.nome + ' ?',
@@ -39,4 +41,5 @@
       </tr>
     </tbody>
   </table>
+  </div>
 </div>

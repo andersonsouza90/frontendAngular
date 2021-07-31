@@ -1,6 +1,6 @@
 export interface IProduto{
   id?: number;
   nome: string;
-  validade: Date;
-  preco: number;
+  validade: string;
+  preco: string;
 }
