@@ -8,10 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   foto: string = 'assets/img/crud.png';
-  nomeProduto: string = 'Curso de Angula';
+  nomeProduto: string = 'Curso de Angular';
   anuncio: string = `O ${this.nomeProduto} está em promoção!`; //Concatenação de texto e variável
   idProduto: number = 35;
-  precoProduto: number = 2.29
+  precoProduto: number = 120.99
   promocao: boolean = true;
   dataValidade = '2021-07-05';
 
